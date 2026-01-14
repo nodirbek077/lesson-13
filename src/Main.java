@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Contact[] contactArray = new Contact[2];//[null, null, null, null]
-        int currentIndex = 0;
+    //global variables
+    static Contact[] contactArray = new Contact[2];//[null, null, null, null]
+    static int currentIndex = 0;
 
+    public static void main(String[] args) {
         boolean b = true;
         while (b) {
             menu();
@@ -13,26 +14,10 @@ public class Main {
             switch (n) {
                 case 1:
                     Contact contact = addContact();
-                    if (isValidContact(contact)) {
-                        if (currentIndex == contactArray.length) {
-                            Contact[] newArray = new Contact[contactArray.length * 2];
-
-                            for (int i = 0; i < contactArray.length; i++) {
-                                newArray[i] = contactArray[i];
-                            }
-                            contactArray = newArray;
-                        }
-                        contactArray[currentIndex] = contact;
-                        currentIndex++;
-                        System.out.println("Contact added.");
-                    }
+                    addToArray(contact);
                     break;
                 case 2:
-                    for (Contact c : contactArray) {
-                        if (c != null) {
-                            System.out.println(c.name + " " + c.surname + " " + c.phone);
-                        }
-                    }
+                    printContactList();
                     break;
                 case 3:
                     //
@@ -99,6 +84,30 @@ public class Main {
 
         return true;
 
+    }
+
+    public static void addToArray(Contact contact) {
+        if (isValidContact(contact)) {
+            if (currentIndex == contactArray.length) {
+                Contact[] newArray = new Contact[contactArray.length * 2];
+
+                for (int i = 0; i < contactArray.length; i++) {
+                    newArray[i] = contactArray[i];
+                }
+                contactArray = newArray;
+            }
+            contactArray[currentIndex] = contact;
+            currentIndex++;
+            System.out.println("Contact added.");
+        }
+    }
+
+    public static void printContactList() {
+        for (Contact c : contactArray) {
+            if (c != null) {
+                System.out.println(c.name + " " + c.surname + " " + c.phone);
+            }
+        }
     }
 
     public static void menu() {
