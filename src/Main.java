@@ -20,7 +20,8 @@ public class Main {
                     printContactList();
                     break;
                 case 3:
-                    //
+                    String query = getQuery();
+                    search(query);
                     break;
                 case 4:
                     //
@@ -106,6 +107,26 @@ public class Main {
         for (Contact c : contactArray) {
             if (c != null) {
                 System.out.println(c.name + " " + c.surname + " " + c.phone);
+            }
+        }
+    }
+
+    public static String getQuery() {
+        System.out.print("Enter query: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
+    }
+
+    public static void search(String query) {
+        query = query.toLowerCase();
+        for (Contact contact : contactArray) {
+            if (contact != null) {
+                if (contact.name.toLowerCase().contains(query) || contact.surname.toLowerCase().contains(query) || contact.phone.contains(query)) {
+                    System.out.println(contact.name + " " + contact.surname + " " + contact.phone);
+                } else {
+                    System.out.println("Hech narsa topilmadi!");
+                    break;
+                }
             }
         }
     }
