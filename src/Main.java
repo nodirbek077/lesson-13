@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Contact[] contactArray = new Contact[10];
+        Contact[] contactArray = new Contact[10];//[null, null, null, null]
         int currentIndex = 0;
 
         boolean b = true;
@@ -21,7 +21,11 @@ public class Main {
                     }
                     break;
                 case 2:
-                    //
+                    for (Contact c : contactArray) {
+                        if (c != null) {
+                            System.out.println(c.name + " " + c.surname + " " + c.phone);
+                        }
+                    }
                     break;
                 case 3:
                     //
