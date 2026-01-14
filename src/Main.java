@@ -88,19 +88,26 @@ public class Main {
     }
 
     public static void addToArray(Contact contact) {
-        if (isValidContact(contact)) {
-            if (currentIndex == contactArray.length) {
-                Contact[] newArray = new Contact[contactArray.length * 2];
-
-                for (int i = 0; i < contactArray.length; i++) {
-                    newArray[i] = contactArray[i];
-                }
-                contactArray = newArray;
-            }
-            contactArray[currentIndex] = contact;
-            currentIndex++;
-            System.out.println("Contact added.");
+        if (!isValidContact(contact)) {
+            return;
         }
+
+        if (isPhoneExist(contact.phone)) {
+            System.out.println("Phone number exists!");
+            return;
+        }
+
+        if (currentIndex == contactArray.length) {
+            Contact[] newArray = new Contact[contactArray.length * 2];
+
+            for (int i = 0; i < contactArray.length; i++) {
+                newArray[i] = contactArray[i];
+            }
+            contactArray = newArray;
+        }
+        contactArray[currentIndex] = contact;
+        currentIndex++;
+        System.out.println("Contact added.");
     }
 
     public static void printContactList() {
@@ -120,15 +127,26 @@ public class Main {
     public static void search(String query) {
         query = query.toLowerCase();
         for (Contact contact : contactArray) {
-            if (contact != null) {
-                if (contact.name.toLowerCase().contains(query) || contact.surname.toLowerCase().contains(query) || contact.phone.contains(query)) {
-                    System.out.println(contact.name + " " + contact.surname + " " + contact.phone);
-                } else {
-                    System.out.println("Hech narsa topilmadi!");
-                    break;
-                }
+            if (contact == null) {
+                continue;
+            }
+
+            if (contact.name.toLowerCase().contains(query) || contact.surname.toLowerCase().contains(query) || contact.phone.contains(query)) {
+                System.out.println(contact.name + " " + contact.surname + " " + contact.phone);
+            } else {
+                System.out.println("Hech narsa topilmadi!");
+                break;
             }
         }
+    }
+
+    public static boolean isPhoneExist(String phone) {
+        for (Contact contact : contactArray) {
+            if (contact != null && contact.phone.equals(phone)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void menu() {
