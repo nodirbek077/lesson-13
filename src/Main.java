@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Contact[] contactArray = new Contact[10];//[null, null, null, null]
+        Contact[] contactArray = new Contact[2];//[null, null, null, null]
         int currentIndex = 0;
 
         boolean b = true;
@@ -14,7 +14,11 @@ public class Main {
                 case 1:
                     Contact contact = addContact();
                     if (isValidContact(contact)) {
-                        //add contact to the array
+                        if (currentIndex == contactArray.length) {
+                            Contact[] newArray = new Contact[contactArray.length * 2];
+
+
+                        }
                         contactArray[currentIndex] = contact;
                         currentIndex++;
                         System.out.println("Contact added.");
