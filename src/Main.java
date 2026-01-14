@@ -24,7 +24,8 @@ public class Main {
                     search(query);
                     break;
                 case 4:
-                    //
+                    String phone = deleteContact();
+                    deleteContactFromArray(phone);
                     break;
                 case 0:
                     b = false;
@@ -147,6 +148,25 @@ public class Main {
             }
         }
         return false;
+    }
+
+    public static String deleteContact() {
+        System.out.print("Enter phone: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
+    }
+
+    public static void deleteContactFromArray(String phone) {
+        for (int i = 0; i < contactArray.length; i++) {
+            Contact contact = contactArray[i];
+            if (contact != null && contact.phone.equals(phone)) {
+                contactArray[i] = null;
+                System.out.println("Contact deleted.");
+                break;
+            }
+        }
+
+        System.out.println("Contact not deleted.");
     }
 
     public static void menu() {
