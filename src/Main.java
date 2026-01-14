@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Contact[] contactArray = new Contact[10];
+        int currentIndex = 0;
+
         boolean b = true;
         while (b) {
             menu();
@@ -10,10 +13,12 @@ public class Main {
             switch (n) {
                 case 1:
                     Contact contact = addContact();
-                    if (!isValidContact(contact)) {
-                        //
+                    if (isValidContact(contact)) {
+                        //add contact to the array
+                        contactArray[currentIndex] = contact;
+                        currentIndex++;
+                        System.out.println("Contact added.");
                     }
-                    System.out.println(contact.name + " " + contact.surname);
                     break;
                 case 2:
                     //
