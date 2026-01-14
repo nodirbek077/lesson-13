@@ -17,7 +17,10 @@ public class Main {
                         if (currentIndex == contactArray.length) {
                             Contact[] newArray = new Contact[contactArray.length * 2];
 
-
+                            for (int i = 0; i < contactArray.length; i++) {
+                                newArray[i] = contactArray[i];
+                            }
+                            contactArray = newArray;
                         }
                         contactArray[currentIndex] = contact;
                         currentIndex++;
