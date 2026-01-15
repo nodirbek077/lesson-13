@@ -53,29 +53,35 @@ public class ContactManager {
 //        contact.surname = surname;
 //        contact.phone = phone;
 
-        return new Contact(name, surname, phone);
+//        return new Contact(name, surname, phone);
+
+        Contact contact = new Contact();
+        contact.setName(name);
+        contact.setSurname(surname);
+        contact.setPhone(phone);
+        return contact;
     }
 
     public boolean isValidContact(Contact contact) {
-        if (contact.name == null || contact.name.trim().length() < 3) {
+        if (contact.getName() == null || contact.getName().trim().length() < 3) {
             System.out.println("Contact name is wrong!");
             return false;
         }
 
-        if (contact.surname == null || contact.surname.trim().length() < 3) {
+        if (contact.getSurname() == null || contact.getSurname().trim().length() < 3) {
             System.out.println("Contact surname is wrong!");
             return false;
         }
 
         //998945283534 => length = 12
-        if (contact.phone == null || contact.phone.trim().length() != 12 ||
-                !contact.phone.startsWith("998")) {
+        if (contact.getPhone() == null || contact.getPhone().trim().length() != 12 ||
+                !contact.getPhone().startsWith("998")) {
             System.out.println("Contact phone is wrong!");
             return false;
         }
 
         //check phone for digits not alphabet
-        char[] phoneArr = contact.phone.toCharArray();//[9,9,8,9,4,5,2,8,3,5,3,4]
+        char[] phoneArr = contact.getPhone().toCharArray();//[9,9,8,9,4,5,2,8,3,5,3,4]
         for (char c : phoneArr) {
             if (!Character.isDigit(c)) {
                 System.out.println("Contact phone is wrong!");
@@ -92,7 +98,7 @@ public class ContactManager {
             return;
         }
 
-        if (isPhoneExist(contact.phone)) {
+        if (isPhoneExist(contact.getPhone())) {
             System.out.println("Phone number exists!");
             return;
         }
@@ -113,7 +119,7 @@ public class ContactManager {
     public void printContactList() {
         for (Contact c : contactArray) {
             if (c != null) {
-                System.out.println(c.name + " " + c.surname + " " + c.phone);
+                System.out.println(c.getName() + " " + c.getSurname() + " " + c.getPhone());
             }
         }
     }
@@ -131,8 +137,8 @@ public class ContactManager {
                 continue;
             }
 
-            if (contact.name.toLowerCase().contains(query) || contact.surname.toLowerCase().contains(query) || contact.phone.contains(query)) {
-                System.out.println(contact.name + " " + contact.surname + " " + contact.phone);
+            if (contact.getName().toLowerCase().contains(query) || contact.getSurname().toLowerCase().contains(query) || contact.getPhone().contains(query)) {
+                System.out.println(contact.getName() + " " + contact.getSurname() + " " + contact.getPhone());
             } else {
                 System.out.println("Hech narsa topilmadi!");
                 break;
@@ -142,7 +148,7 @@ public class ContactManager {
 
     public boolean isPhoneExist(String phone) {
         for (Contact contact : contactArray) {
-            if (contact != null && contact.phone.equals(phone)) {
+            if (contact != null && contact.getPhone().equals(phone)) {
                 return true;
             }
         }
@@ -158,7 +164,7 @@ public class ContactManager {
     public void deleteContactFromArray(String phone) {
         for (int i = 0; i < contactArray.length; i++) {
             Contact contact = contactArray[i];
-            if (contact != null && contact.phone.equals(phone)) {
+            if (contact != null && contact.getPhone().equals(phone)) {
                 contactArray[i] = null;
                 System.out.println("Contact deleted.");
                 break;
