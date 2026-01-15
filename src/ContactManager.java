@@ -48,12 +48,12 @@ public class ContactManager {
         System.out.print("Enter phone: ");
         String phone = scanner.next();
 
-        Contact contact = new Contact();
-        contact.name = name;
-        contact.surname = surname;
-        contact.phone = phone;
+//        Contact contact = new Contact(name, surname, phone);
+//        contact.name = name;
+//        contact.surname = surname;
+//        contact.phone = phone;
 
-        return contact;
+        return new Contact(name, surname, phone);
     }
 
     public boolean isValidContact(Contact contact) {
