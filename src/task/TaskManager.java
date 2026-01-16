@@ -3,6 +3,10 @@ package task;
 import java.util.Scanner;
 
 public class TaskManager {
+
+    public Task[] taskArray = new Task[10];
+    public int currentIndex = 0;
+
     public void start() {
         boolean b = true;
         while (b) {
@@ -11,6 +15,7 @@ public class TaskManager {
             switch (n) {
                 case 1:
                     Task task = addTask();
+                    addToArray(task);
                     break;
                 case 2:
                     break;
@@ -42,6 +47,19 @@ public class TaskManager {
         task.setTitle(title);
         task.setContent(content);
         return task;
+    }
+
+    private void addToArray(Task task) {
+        //check task title and content
+        if (taskArray.length == currentIndex) {
+            Task[] newArr = new Task[currentIndex * 2];
+            for (int i = 0; i < currentIndex; i++) {
+                newArr[i] = taskArray[i];
+            }
+            taskArray = newArr;
+        }
+        taskArray[currentIndex] = task;
+        currentIndex++;
     }
 
     public void menu() {

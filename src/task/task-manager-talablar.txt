@@ -11,7 +11,7 @@ Bu dastur console yordamida ishlaydigan bo'lsin.
     Enter content:
 2-TaskList
     id, title, content
-3-ChangeStatus by name:
+3-ChangeStatus by name, status
     Enter name:
 4-ChangeStatus by id
     Enter id
