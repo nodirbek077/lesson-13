@@ -19,6 +19,7 @@ public class TaskManager {
                     addToArray(task);
                     break;
                 case 2:
+                    printAllTask();
                     break;
                 case 3:
                     break;
@@ -39,10 +40,10 @@ public class TaskManager {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter title: ");
-        String title = scanner.next();
+        String title = scanner.nextLine();
 
         System.out.print("Enter content: ");
-        String content = scanner.next();
+        String content = scanner.nextLine();
 
         Task task = new Task();
         task.setTitle(title);
@@ -50,7 +51,7 @@ public class TaskManager {
         return task;
     }
 
-    private void addToArray(Task task) {
+    public void addToArray(Task task) {
         //check task title and content
 
         task.setStatus("ACTIVE");
@@ -65,6 +66,17 @@ public class TaskManager {
         }
         taskArray[currentIndex] = task;
         currentIndex++;
+    }
+
+    public void printAllTask() {
+        for (Task task : taskArray) {
+            if (task != null) {
+                System.out.println(task.getId() + " " +
+                        task.getTitle() + " " +
+                        task.getContent() + " " +
+                        task.getStatus());
+            }
+        }
     }
 
     public void menu() {
