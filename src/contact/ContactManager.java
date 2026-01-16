@@ -119,11 +119,17 @@ public class ContactManager {
     }
 
     public void printContactList() {
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("|                        Contact List                          |%n");
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("| %-10s | %-10s | %-34s |%n", "Name", "Surname", "Phone");
+        System.out.printf("----------------------------------------------------------------%n");
         for (Contact c : contactArray) {
             if (c != null) {
-                System.out.println(c.getName() + " " + c.getSurname() + " " + c.getPhone());
+                System.out.printf("| %-10s | %-10s | %-34s |%n", c.getName(), c.getSurname(), c.getPhone());
             }
         }
+        System.out.printf("----------------------------------------------------------------%n");
     }
 
     public String getQuery() {
