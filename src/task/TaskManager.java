@@ -22,30 +22,12 @@ public class TaskManager {
                     printAllTask();
                     break;
                 case 3:
-                    String title = changeStatusByName();
-                    for (Task t : taskArray) {
-                        if (t != null && t.getTitle().equals(title)) {
-                            if (t.getStatus().equals("ACTIVE")) {
-                                t.setStatus("DONE");
-                            } else {
-                                t.setStatus("ACTIVE");
-                            }
-                            break;
-                        }
-                    }
+                    String title = getTaskTitle();
+                    changeStatusByTitle(title);
                     break;
                 case 4:
-                    int id = changeStatusById();
-                    for (Task t : taskArray) {
-                        if (t != null && t.getId() == id) {
-                            if (t.getStatus().equals("ACTIVE")) {
-                                t.setStatus("DONE");
-                            } else {
-                                t.setStatus("ACTIVE");
-                            }
-                            break;
-                        }
-                    }
+                    int id = getTaskId();
+                    changeStatusById(id);
                     break;
                 case 5:
                     printActiveTaskList();
@@ -109,16 +91,42 @@ public class TaskManager {
         System.out.printf("-------------------------------------------------------------------------%n");
     }
 
-    public String changeStatusByName() {
+    public String getTaskTitle() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter title: ");
         return scanner.nextLine();
     }
 
-    public int changeStatusById() {
+    public void changeStatusByTitle(String title) {
+        for (Task t : taskArray) {
+            if (t != null && t.getTitle().equals(title)) {
+                if (t.getStatus().equals("ACTIVE")) {
+                    t.setStatus("DONE");
+                } else {
+                    t.setStatus("ACTIVE");
+                }
+                break;
+            }
+        }
+    }
+
+    public int getTaskId() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter id: ");
         return scanner.nextInt();
+    }
+
+    public void changeStatusById(int id) {
+        for (Task t : taskArray) {
+            if (t != null && t.getId() == id) {
+                if (t.getStatus().equals("ACTIVE")) {
+                    t.setStatus("DONE");
+                } else {
+                    t.setStatus("ACTIVE");
+                }
+                break;
+            }
+        }
     }
 
     public void printActiveTaskList() {
