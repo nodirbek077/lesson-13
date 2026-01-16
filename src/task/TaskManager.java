@@ -49,6 +49,7 @@ public class TaskManager {
                     }
                     break;
                 case 5:
+                    printActiveTaskList();
                     break;
                 case 0:
                     b = false;
@@ -112,6 +113,16 @@ public class TaskManager {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter id: ");
         return scanner.nextInt();
+    }
+
+    public void printActiveTaskList(){
+        for (Task task : taskArray) {
+            if (task != null) {
+                if (task.getStatus().equals("ACTIVE")) {
+                    System.out.println(task.getId() + " " + task.getTitle() + " " + task.getContent());
+                }
+            }
+        }
     }
 
     public void menu() {
