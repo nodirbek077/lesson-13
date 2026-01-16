@@ -3,6 +3,7 @@ package task;
 public class Task {
     private String title;
     private String content;
+    private String status; // ACTIVE, DONE
 
     public String getTitle() {
         return title;
@@ -18,5 +19,13 @@ public class Task {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

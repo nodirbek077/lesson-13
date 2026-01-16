@@ -46,6 +46,7 @@ public class TaskManager {
         Task task = new Task();
         task.setTitle(title);
         task.setContent(content);
+        task.setStatus("ACTIVE");
         return task;
     }
 

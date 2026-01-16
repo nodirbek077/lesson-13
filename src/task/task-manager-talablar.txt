@@ -10,7 +10,7 @@ Bu dastur console yordamida ishlaydigan bo'lsin.
     Enter title:
     Enter content:
 2-TaskList
-    id, title, content
+    id, title, content, status
 3-ChangeStatus by name, status
     Enter name:
 4-ChangeStatus by id
