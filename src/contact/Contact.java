@@ -1,3 +1,5 @@
+package contact;
+
 public class Contact {
     private String name;
     private String surname;

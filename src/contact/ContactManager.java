@@ -1,3 +1,5 @@
+package contact;
+
 import java.util.Scanner;
 
 public class ContactManager {

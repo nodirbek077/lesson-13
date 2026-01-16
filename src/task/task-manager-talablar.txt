@@ -1,0 +1,20 @@
+  ***** TaskManager Project *****
+
+Foydalanuvchilar todo larni boshqarishi uchun dastur tuzing.
+Bunda foydalanuvchi todo kiritish, kiritilgan todo-larni ko'rish,
+todo-larni statuslarini o'zgartirish va ularni qidirish imkoni beruvchi dastur tuzing.
+Bu dastur console yordamida ishlaydigan bo'lsin.
+
+** Menu **
+1-Add Task
+    Enter title:
+    Enter content:
+2-TaskList
+    id, title, content
+3-ChangeStatus by name:
+    Enter name:
+4-ChangeStatus by id
+    Enter id
+5-Active TaskList
+    id, title, content
+0-Exit.
