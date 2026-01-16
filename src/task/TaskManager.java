@@ -36,6 +36,17 @@ public class TaskManager {
                     }
                     break;
                 case 4:
+                    int id = changeStatusById();
+                    for (Task t : taskArray) {
+                        if (t != null && t.getId() == id) {
+                            if (t.getStatus().equals("ACTIVE")) {
+                                t.setStatus("DONE");
+                            } else {
+                                t.setStatus("ACTIVE");
+                            }
+                            break;
+                        }
+                    }
                     break;
                 case 5:
                     break;
@@ -95,6 +106,12 @@ public class TaskManager {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter title: ");
         return scanner.nextLine();
+    }
+
+    public int changeStatusById() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter id: ");
+        return scanner.nextInt();
     }
 
     public void menu() {
