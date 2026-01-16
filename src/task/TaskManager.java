@@ -1,5 +1,6 @@
 package task;
 
+import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class TaskManager {
@@ -22,6 +23,17 @@ public class TaskManager {
                     printAllTask();
                     break;
                 case 3:
+                    String title = changeStatusByName();
+                    for (Task t : taskArray) {
+                        if (t != null && t.getTitle().equals(title)) {
+                            if (t.getStatus().equals("ACTIVE")) {
+                                t.setStatus("DONE");
+                            } else {
+                                t.setStatus("ACTIVE");
+                            }
+                            break;
+                        }
+                    }
                     break;
                 case 4:
                     break;
@@ -77,6 +89,12 @@ public class TaskManager {
                         task.getStatus());
             }
         }
+    }
+
+    public String changeStatusByName() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter title: ");
+        return scanner.nextLine();
     }
 
     public void menu() {
