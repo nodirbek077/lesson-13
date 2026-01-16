@@ -122,13 +122,20 @@ public class TaskManager {
     }
 
     public void printActiveTaskList() {
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("|                       Active Task List                       |%n");
+        System.out.printf("----------------------------------------------------------------%n");
+        System.out.printf("| %-3s | %-15s | %-36s |%n", "Id", "Title", "Content");
+        System.out.printf("----------------------------------------------------------------%n");
         for (Task task : taskArray) {
-            if (task != null) {
-                if (task.getStatus().equals("ACTIVE")) {
-                    System.out.println(task.getId() + " " + task.getTitle() + " " + task.getContent());
-                }
+            if (task != null && task.getStatus().equals("ACTIVE")) {
+                System.out.printf("| %-3s | %-15s | %-36s |%n",
+                        task.getId(),
+                        task.getTitle(),
+                        task.getContent());
             }
         }
+        System.out.printf("----------------------------------------------------------------%n");
     }
 
     public void menu() {
