@@ -6,6 +6,7 @@ public class TaskManager {
 
     public Task[] taskArray = new Task[10];
     public int currentIndex = 0;
+    public int generalId = 1;
 
     public void start() {
         boolean b = true;
@@ -46,12 +47,15 @@ public class TaskManager {
         Task task = new Task();
         task.setTitle(title);
         task.setContent(content);
-        task.setStatus("ACTIVE");
         return task;
     }
 
     private void addToArray(Task task) {
         //check task title and content
+
+        task.setStatus("ACTIVE");
+        task.setId(generalId++);
+
         if (taskArray.length == currentIndex) {
             Task[] newArr = new Task[currentIndex * 2];
             for (int i = 0; i < currentIndex; i++) {
