@@ -1,6 +1,5 @@
 package task;
 
-import java.io.BufferedReader;
 import java.util.Scanner;
 
 public class TaskManager {
@@ -93,14 +92,21 @@ public class TaskManager {
     }
 
     public void printAllTask() {
+        System.out.printf("-------------------------------------------------------------------------%n");
+        System.out.printf("|                              Task List                                |%n");
+        System.out.printf("-------------------------------------------------------------------------%n");
+        System.out.printf("| %-3s | %-15s | %-36s | %-6s |%n", "Id", "Title", "Content", "Status");
+        System.out.printf("-------------------------------------------------------------------------%n");
         for (Task task : taskArray) {
             if (task != null) {
-                System.out.println(task.getId() + " " +
-                        task.getTitle() + " " +
-                        task.getContent() + " " +
+                System.out.printf("| %-3s | %-15s | %-36s | %-6s |%n",
+                        task.getId(),
+                        task.getTitle(),
+                        task.getContent(),
                         task.getStatus());
             }
         }
+        System.out.printf("-------------------------------------------------------------------------%n");
     }
 
     public String changeStatusByName() {
@@ -115,7 +121,7 @@ public class TaskManager {
         return scanner.nextInt();
     }
 
-    public void printActiveTaskList(){
+    public void printActiveTaskList() {
         for (Task task : taskArray) {
             if (task != null) {
                 if (task.getStatus().equals("ACTIVE")) {
