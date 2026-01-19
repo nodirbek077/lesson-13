@@ -1,15 +1,16 @@
 package task;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class TaskManager {
 
     public Task[] taskArray = new Task[10];
-    public int currentIndex = 0;
-    public int generalId = 1;
+    public Integer currentIndex = 0;
+    public Integer generalId = 1;
 
     public void start() {
-        boolean b = true;
+        Boolean b = true;
         while (b) {
             menu();
             int n = getMenuNumber();
@@ -116,9 +117,9 @@ public class TaskManager {
         return scanner.nextInt();
     }
 
-    public void changeStatusById(int id) {
+    public void changeStatusById(Integer id) {
         for (Task t : taskArray) {
-            if (t != null && t.getId() == id) {
+            if (t != null && Objects.equals(t.getId(), id)) {
                 if (t.getStatus().equals("ACTIVE")) {
                     t.setStatus("DONE");
                 } else {

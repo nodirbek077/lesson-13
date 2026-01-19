@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class ContactManager {
     //global variables
     Contact[] contactArray = new Contact[2];//[null, null, null, null]
-    int currentIndex = 0;
+    Integer currentIndex = 0;
 
     public void start() {
-        boolean b = true;
+        Boolean b = true;
         while (b) {
             menu();
             int n = getMenuNumber();
