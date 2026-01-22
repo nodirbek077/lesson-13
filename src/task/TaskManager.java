@@ -1,6 +1,6 @@
 package task;
 
-import common.Menu;
+import util.Menu;
 
 import java.util.Objects;
 import java.util.Scanner;

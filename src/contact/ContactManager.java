@@ -1,6 +1,6 @@
 package contact;
 
-import common.Menu;
+import util.Menu;
 
 import java.util.Scanner;
 

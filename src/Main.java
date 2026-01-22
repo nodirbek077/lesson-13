@@ -1,4 +1,4 @@
-import common.Menu;
+import util.Menu;
 import contact.ContactManager;
 import task.TaskManager;
 
