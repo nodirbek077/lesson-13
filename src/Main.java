@@ -1,4 +1,4 @@
-import util.Menu;
+import util.ScannerUtil;
 import contact.ContactManager;
 import task.TaskManager;
 
@@ -9,7 +9,7 @@ public class Main {
         boolean b = true;
         while (b) {
             menu();
-            int n = Menu.getMenuNumber();
+            int n = ScannerUtil.getMenuNumber();
             switch (n) {
                 case 1:
                     contactManager.start();

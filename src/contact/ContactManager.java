@@ -1,6 +1,6 @@
 package contact;
 
-import util.Menu;
+import util.ScannerUtil;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class ContactManager {
         Boolean b = true;
         while (b) {
             menu();
-            int n = Menu.getMenuNumber();
+            int n = ScannerUtil.getMenuNumber();
 
             switch (n) {
                 case 1:

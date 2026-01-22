@@ -1,6 +1,6 @@
 package task;
 
-import util.Menu;
+import util.ScannerUtil;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class TaskManager {
         Boolean b = true;
         while (b) {
             menu();
-            int n = Menu.getMenuNumber();
+            int n = ScannerUtil.getMenuNumber();
             switch (n) {
                 case 1:
                     Task task = addTask();
