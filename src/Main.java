@@ -1,7 +1,6 @@
+import common.Menu;
 import contact.ContactManager;
 import task.TaskManager;
-
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +9,7 @@ public class Main {
         boolean b = true;
         while (b) {
             menu();
-            int n = getMenuNumber();
+            int n = Menu.getMenuNumber();
             switch (n) {
                 case 1:
                     contactManager.start();
@@ -29,15 +28,9 @@ public class Main {
     }
 
     public static void menu() {
-        System.out.println("** Menu **");
+        System.out.println("** common.Menu **");
         System.out.println("1. Contact Manager");
         System.out.println("2. Task Manager");
         System.out.println("0. Exit");
-    }
-
-    public static int getMenuNumber() {
-        System.out.print("Choose menu: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
     }
 }

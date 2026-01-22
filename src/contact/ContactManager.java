@@ -1,5 +1,7 @@
 package contact;
 
+import common.Menu;
+
 import java.util.Scanner;
 
 public class ContactManager {
@@ -11,7 +13,7 @@ public class ContactManager {
         Boolean b = true;
         while (b) {
             menu();
-            int n = getMenuNumber();
+            int n = Menu.getMenuNumber();
 
             switch (n) {
                 case 1:
@@ -189,11 +191,5 @@ public class ContactManager {
         System.out.println("3-Search");
         System.out.println("4-Delete Contact");
         System.out.println("0-Exit");
-    }
-
-    public int getMenuNumber() {
-        System.out.print("Choose menu: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
     }
 }
