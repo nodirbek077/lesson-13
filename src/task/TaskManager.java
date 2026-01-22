@@ -45,13 +45,12 @@ public class TaskManager {
     }
 
     public Task addTask() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter title: ");
-        String title = scanner.nextLine();
+        String title = ScannerUtil.scannerLine.next();
 
         System.out.print("Enter content: ");
-        String content = scanner.nextLine();
+        String content = ScannerUtil.scannerLine.next();
 
         Task task = new Task();
         task.setTitle(title);
@@ -95,9 +94,8 @@ public class TaskManager {
     }
 
     public String getTaskTitle() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter title: ");
-        return scanner.nextLine();
+        return ScannerUtil.scannerLine.next();
     }
 
     public void changeStatusByTitle(String title) {
@@ -114,9 +112,8 @@ public class TaskManager {
     }
 
     public int getTaskId() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter id: ");
-        return scanner.nextInt();
+        return ScannerUtil.scannerInt.nextInt();
     }
 
     public void changeStatusById(Integer id) {

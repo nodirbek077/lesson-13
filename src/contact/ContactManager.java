@@ -2,8 +2,6 @@ package contact;
 
 import util.ScannerUtil;
 
-import java.util.Scanner;
-
 public class ContactManager {
     //global variables
     Contact[] contactArray = new Contact[2];//[null, null, null, null]
@@ -41,16 +39,14 @@ public class ContactManager {
     }
 
     public Contact addContact() {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter name: ");
-        String name = scanner.next();
+        String name = ScannerUtil.scanner.next();
 
         System.out.print("Enter surname: ");
-        String surname = scanner.next();
+        String surname = ScannerUtil.scanner.next();
 
         System.out.print("Enter phone: ");
-        String phone = scanner.next();
+        String phone = ScannerUtil.scanner.next();
 
 //        Contact contact = new Contact(name, surname, phone);
 //        contact.name = name;
@@ -136,8 +132,7 @@ public class ContactManager {
 
     public String getQuery() {
         System.out.print("Enter query: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return ScannerUtil.scanner.next();
     }
 
     public void search(String query) {
@@ -167,8 +162,7 @@ public class ContactManager {
 
     public String deleteContact() {
         System.out.print("Enter phone: ");
-        Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return ScannerUtil.scanner.next();
     }
 
     public void deleteContactFromArray(String phone) {
