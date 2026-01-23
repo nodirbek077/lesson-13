@@ -1,0 +1,20 @@
+        ***** SmsManager Project *****
+  SmsManager manager loyihasi telefon raqamlarga sms jo'natish uchun ishlatiladi.
+
+Unda ContactManager loyihasida qo'shilgan telefon raqamlarga sms jo'natish mumkun.
+
+Ya'ni contactManager da qo'shilgan contact-larning telefon raqamlariga sms ketadi.
+
+Contact o'chirilganda unga jo'natilgan sms lar ham o'chirilsin.
+
+ ** Menu **
+1.Send Sms.
+    Enter phone:
+    Enter text:
+2.Sms History.
+    Enter Phone:  (id, phone, text, sendDate)
+3.All sms history.
+    id, phone, text, sendDate
+4.Delete sms history.
+    Enter phone:
+0.Exit.
