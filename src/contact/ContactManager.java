@@ -1,11 +1,13 @@
 package contact;
 
+import sms.SmsManager;
 import util.ScannerUtil;
 
 public class ContactManager {
     //global variables
     Contact[] contactArray = new Contact[2];//[null, null, null, null]
     Integer currentIndex = 0;
+    private SmsManager smsManager;
 
     public void start() {
         Boolean b = true;
@@ -170,6 +172,7 @@ public class ContactManager {
             Contact contact = contactArray[i];
             if (contact != null && contact.getPhone().equals(phone)) {
                 contactArray[i] = null;
+                smsManager.deleteSmsHistory(contact.getPhone());
                 System.out.println("Contact deleted.");
                 break;
             }
@@ -185,5 +188,9 @@ public class ContactManager {
         System.out.println("3-Search");
         System.out.println("4-Delete Contact");
         System.out.println("0-Exit");
+    }
+
+    public void setSmsManager(SmsManager smsManager) {
+        this.smsManager = smsManager;
     }
 }

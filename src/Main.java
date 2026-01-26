@@ -8,6 +8,7 @@ public class Main {
         TaskManager taskManager = new TaskManager();
         ContactManager contactManager = new ContactManager();
         SmsManager smsManager = new SmsManager(contactManager);
+        contactManager.setSmsManager(smsManager);
         boolean b = true;
         while (b) {
             menu();
