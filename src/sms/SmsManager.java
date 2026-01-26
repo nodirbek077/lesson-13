@@ -31,8 +31,11 @@ public class SmsManager {
                     printSmsHistory(phone);
                     break;
                 case 3:
+                    printAllSmsHistory();
                     break;
                 case 4:
+                    String deletingPhone = getPhoneNumber();
+                    deleteSmsHistory(deletingPhone);
                     break;
                 case 0:
                     b = false;
@@ -96,15 +99,47 @@ public class SmsManager {
         System.out.printf("-------------------------------------------------------------------------%n");
     }
 
+    public void printAllSmsHistory(){
+        System.out.printf("--------------------------------------------------------------------------------------------------%n");
+        System.out.printf("|                                        ALL SMS HISTORY                                         |%n");
+        System.out.printf("--------------------------------------------------------------------------------------------------%n");
+        System.out.printf("| %-3s | %-15s | %-36s | %-6s |%n", "Id", "Phone", "Text", "Created date");
+        System.out.printf("--------------------------------------------------------------------------------------------------%n");
+        for (Sms sms : smsArray) {
+            if (sms != null) {
+                System.out.printf("| %-3s | %-15s | %-36s | %-6s |%n",
+                        sms.getId(),
+                        sms.getPhone(),
+                        sms.getText(),
+                        sms.getCreatedDate());
+            }
+        }
+        System.out.printf("-------------------------------------------------------------------------%n");
+    }
+
+    public void deleteSmsHistory(String phone) {
+        //phone exit
+        boolean isPhoneExist = contactManager.isPhoneExist(phone);
+        if (!isPhoneExist) {
+            System.out.println("Phone not found!");
+            return;
+        }
+
+        //Have sms sent to this phone number?
+        for (Sms sms : smsArray) {
+            if (sms != null && sms.getPhone().equals(phone)) {
+                sms.setPhone(null);
+                sms.setText(null);
+                sms.setCreatedDate(LocalDateTime.now());
+            }
+        }
+        System.out.println("Sms deleted successfully!");
+    }
+
     public String getPhoneNumber(){
         System.out.print("Enter phone: ");
-        return ScannerUtil.scanner.nextLine();
+        return ScannerUtil.scanner.next();
     }
-
-    public void allSmsHistory(){
-
-    }
-
 
     public void menu() {
         System.out.println("** Sms Manager Menu **");
