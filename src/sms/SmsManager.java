@@ -118,22 +118,13 @@ public class SmsManager {
     }
 
     public void deleteSmsHistory(String phone) {
-        //phone exit
-        boolean isPhoneExist = contactManager.isPhoneExist(phone);
-        if (!isPhoneExist) {
-            System.out.println("Phone not found!");
-            return;
-        }
-
-        //Have sms sent to this phone number?
-        for (Sms sms : smsArray) {
+        for (int i = 0; i < smsArray.length; i++) {
+            Sms sms = smsArray[i];
             if (sms != null && sms.getPhone().equals(phone)) {
-                sms.setPhone(null);
-                sms.setText(null);
-                sms.setCreatedDate(LocalDateTime.now());
+                smsArray[i] = null;
+                System.out.println("Sms deleted");
             }
         }
-        System.out.println("Sms deleted successfully!");
     }
 
     public String getPhoneNumber(){
